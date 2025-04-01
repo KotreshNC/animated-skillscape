@@ -61,32 +61,36 @@ const AchievementTimeline: React.FC = () => {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: "0px 0px -100px 0px" }
     );
 
     const timelineItems = timelineRef.current?.querySelectorAll(".timeline-item");
     if (timelineItems) {
-      timelineItems.forEach((item) => observer.observe(item));
+      timelineItems.forEach((item) => {
+        item.classList.remove("animate-fade-in");
+        item.classList.add("opacity-0");
+        observer.observe(item);
+      });
     }
 
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6" ref={timelineRef}>
-      <div className="relative border-l-2 border-portfolio-purple pl-10 ml-6 space-y-10">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8" ref={timelineRef}>
+      <div className="relative border-l-2 border-portfolio-purple ml-6 space-y-12">
         {achievements.map((achievement, index) => (
           <div 
             key={achievement.id} 
             className="timeline-item opacity-0 relative"
             style={{ animationDelay: `${index * 200}ms` }}
           >
-            <div className="timeline-dot absolute -left-[34px] top-0">
-              <span className="flex items-center justify-center w-14 h-14 rounded-full bg-white shadow-md">
+            <div className="absolute -left-[34px] top-0">
+              <span className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md">
                 {achievement.icon}
               </span>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+            <div className="bg-white p-6 rounded-lg shadow-md transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ml-4">
               <div className="flex justify-between items-center mb-2">
                 <h3 className="text-xl font-semibold text-gray-800">{achievement.title}</h3>
                 <span className="text-sm text-portfolio-purple font-semibold px-3 py-1 bg-portfolio-purple/10 rounded-full">

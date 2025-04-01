@@ -63,7 +63,7 @@ const Index = () => {
       {/* Achievements Section */}
       <section id="achievements" className="py-20 px-4 sm:px-6 bg-white text-gray-900">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold gradient-text inline-block mb-2">Achievements</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">Key milestones on my journey</p>
           </div>
