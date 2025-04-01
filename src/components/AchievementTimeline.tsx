@@ -52,28 +52,17 @@ const AchievementTimeline: React.FC = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -100px 0px" }
-    );
-
+    // Make all timeline items visible by default rather than hiding them initially
     const timelineItems = timelineRef.current?.querySelectorAll(".timeline-item");
     if (timelineItems) {
-      timelineItems.forEach((item) => {
-        item.classList.remove("animate-fade-in");
-        item.classList.add("opacity-0");
-        observer.observe(item);
+      timelineItems.forEach((item, index) => {
+        // Add a small delay to each item for a staggered appearance
+        setTimeout(() => {
+          item.classList.add("animate-fade-in");
+          item.classList.remove("opacity-0");
+        }, index * 150);
       });
     }
-
-    return () => observer.disconnect();
   }, []);
 
   return (
@@ -82,8 +71,8 @@ const AchievementTimeline: React.FC = () => {
         {achievements.map((achievement, index) => (
           <div 
             key={achievement.id} 
-            className="timeline-item opacity-0 relative"
-            style={{ animationDelay: `${index * 200}ms` }}
+            className="timeline-item opacity-0 relative mb-10"
+            style={{ transitionDelay: `${index * 150}ms` }}
           >
             <div className="absolute -left-[34px] top-0">
               <span className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md">
