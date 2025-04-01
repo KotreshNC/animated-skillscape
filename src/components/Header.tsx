@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Download, ArrowDown } from "lucide-react";
 import NeuralNetworkAnimation from "./NeuralNetworkAnimation";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Header: React.FC = () => {
   const scrollToSection = (id: string) => {
@@ -18,8 +19,14 @@ const Header: React.FC = () => {
         <NeuralNetworkAnimation />
       </div>
       <div className="z-10 max-w-3xl text-center px-4 sm:px-6 animate-fade-in">
+        <div className="flex justify-center mb-6">
+          <Avatar className="h-32 w-32 border-4 border-portfolio-purple">
+            <AvatarImage src="/lovable-uploads/e1c47f69-e355-4344-9c21-617bd2a15a9f.png" alt="Kotresha Chavadihindal" />
+            <AvatarFallback>KC</AvatarFallback>
+          </Avatar>
+        </div>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text">
-          Hi, I'm <span className="gradient-text">Your Name</span>
+          Hi, I'm <span className="gradient-text">Kotresha Chavadihindal</span>
         </h1>
         <p className="text-xl sm:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
           Machine Learning Enthusiast & Tech Innovator

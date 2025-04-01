@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-gray-600 text-sm">
-              © {currentYear} Your Name. All rights reserved.
+              © {currentYear} Kotresha Chavadihindal. All rights reserved.
             </p>
           </div>
           

@@ -8,19 +8,19 @@ const SocialLinks: React.FC = () => {
     {
       name: "LinkedIn",
       icon: <Linkedin className="w-5 h-5" />,
-      url: "#",
+      url: "https://www.linkedin.com/in/kotresh-chavadihindala-30130225a",
       color: "bg-[#0077B5]",
     },
     {
       name: "GitHub",
       icon: <Github className="w-5 h-5" />,
-      url: "#",
+      url: "https://github.com/KotreshNC",
       color: "bg-[#333]",
     },
     {
       name: "Twitter",
       icon: <Twitter className="w-5 h-5" />,
-      url: "#",
+      url: "https://x.com/KChavadihindala",
       color: "bg-[#1DA1F2]",
     },
     {
@@ -62,14 +62,14 @@ const SocialLinks: React.FC = () => {
         <div className="text-center mt-8">
           <Button 
             className="gradient-bg hover:opacity-90 text-white rounded-full px-8 py-6 text-lg flex items-center gap-2"
-            onClick={() => window.location.href = "mailto:your-email@example.com"}
+            onClick={() => window.location.href = "mailto:kotresha.c@example.com"}
           >
             <Mail className="w-5 h-5" />
             Contact Me
           </Button>
           <div className="relative mt-4">
             <p className="text-gray-500 text-sm">
-              your-email@example.com
+              kotresha.c@example.com
             </p>
           </div>
         </div>

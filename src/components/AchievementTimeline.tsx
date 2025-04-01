@@ -74,28 +74,30 @@ const AchievementTimeline: React.FC = () => {
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6" ref={timelineRef}>
-      {achievements.map((achievement, index) => (
-        <div 
-          key={achievement.id} 
-          className="timeline-item opacity-0"
-          style={{ animationDelay: `${index * 200}ms` }}
-        >
-          <div className="timeline-dot">
-            <span className="absolute -left-[34px] w-14 h-14 flex items-center justify-center rounded-full bg-white shadow-md">
-              {achievement.icon}
-            </span>
-          </div>
-          <div className="ml-4 bg-white p-6 rounded-lg shadow-md transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-            <div className="flex justify-between items-center mb-2">
-              <h3 className="text-xl font-semibold text-gray-800">{achievement.title}</h3>
-              <span className="text-sm text-portfolio-purple font-semibold px-3 py-1 bg-portfolio-purple/10 rounded-full">
-                {achievement.year}
+      <div className="relative border-l-2 border-portfolio-purple pl-10 ml-6 space-y-10">
+        {achievements.map((achievement, index) => (
+          <div 
+            key={achievement.id} 
+            className="timeline-item opacity-0 relative"
+            style={{ animationDelay: `${index * 200}ms` }}
+          >
+            <div className="timeline-dot absolute -left-[34px] top-0">
+              <span className="flex items-center justify-center w-14 h-14 rounded-full bg-white shadow-md">
+                {achievement.icon}
               </span>
             </div>
-            <p className="text-gray-600">{achievement.description}</p>
+            <div className="bg-white p-6 rounded-lg shadow-md transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-xl font-semibold text-gray-800">{achievement.title}</h3>
+                <span className="text-sm text-portfolio-purple font-semibold px-3 py-1 bg-portfolio-purple/10 rounded-full">
+                  {achievement.year}
+                </span>
+              </div>
+              <p className="text-gray-600">{achievement.description}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
